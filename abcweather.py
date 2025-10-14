@@ -193,6 +193,17 @@ def calculate_std_dev(filtered_values):
     variance = sum(squared_diffs) / len(filtered_values)
     std_dev = variance ** 0.5
     return std_dev
+
+# Diff betwen min and max
+def range(filtered_values):
+    if len(filtered_values) == 0:
+        return None  # Return None or handle empty data case as needed
+    
+    max = max(filtered_values)
+    min = min(filtered_values)
+    
+    range = max - min
+    return range
  
 def main():
     """
