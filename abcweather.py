@@ -176,6 +176,15 @@ def calculate_median(filtered_values):
     
     return median
  
+def calculate_std_dev(filtered_values):
+    if len(filtered_values) == 0:
+        return None  
+    
+    mean = calculate_average(filtered_values)
+    squared_diffs = [(x - mean) ** 2 for x in filtered_values]
+    variance = sum(squared_diffs) / len(filtered_values)
+    std_dev = variance ** 0.5
+    return std_dev
  
 def main():
     """
