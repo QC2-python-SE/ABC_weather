@@ -202,7 +202,7 @@ def range(filtered_values):
     max = max(filtered_values)
     min = min(filtered_values)
     
-    range = max - min
+    range = abs(max - min)
     return range
  
 def main():
