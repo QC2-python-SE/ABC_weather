@@ -160,6 +160,21 @@ def calculate_average(filtered_values):
     
     average = total_sum / count
     return average
+
+def calculate_median(filtered_values):
+    if len(filtered_values) == 0:
+        return None  # Return None or handle empty data case as needed
+    
+    sorted_values = sorted(filtered_values)
+    n = len(sorted_values)
+    mid = n // 2
+    
+    if n % 2 == 0:  # Even number of elements
+        median = (sorted_values[mid - 1] + sorted_values[mid]) / 2
+    else:  # Odd number of elements
+        median = sorted_values[mid]
+    
+    return median
  
  
 def main():
