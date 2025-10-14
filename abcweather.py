@@ -175,6 +175,14 @@ def calculate_median(filtered_values):
         median = sorted_values[mid]
     
     return median
+
+def calculate_variance(filtered_values):
+    if len(filtered_values) == 0:
+        return None  # Return None or handle empty data case as needed
+
+    average=calculate_average(filtered_values)
+    var = sum((x - average) ** 2 for x in filtered_values) / len(filtered_values)
+    return var
  
 def calculate_std_dev(filtered_values):
     if len(filtered_values) == 0:
