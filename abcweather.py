@@ -200,11 +200,11 @@ def calculate_range(filtered_values):
     if len(filtered_values) == 0:
         return None  # Return None or handle empty data case as needed
     
-    max = max(filtered_values)
-    min = min(filtered_values)
+    maximum = max(filtered_values)
+    mininum = min(filtered_values)
     
-    range = abs(max - min)
-    return range
+    rangeVals = abs(maximum - minimum)
+    return rangeVals
  
 
  
