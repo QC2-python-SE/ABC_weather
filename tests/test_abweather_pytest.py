@@ -6,7 +6,7 @@ import pytest
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
-from abcweather import read_dataset, clean_data, train_model, calculate_average
+from abcweather import read_dataset, clean_data, train_model, calculate_average, calculate_variance
 
 @pytest.fixture
 def mock_data():
@@ -64,4 +64,39 @@ def test_calculate_average():
     result_empty = calculate_average(empty_values)
     assert result_empty is None
 
+def test_calculate_variance():
+    # Test variance calculation
+    values = [1, 2, 3, 4, 5]
+    result = calculate_variance(values)
+    assert result == 2
 
+    # Test for single value input
+    single_value = [5]
+    result_single = calculate_variance(single_value)
+    assert result_single == 0
+
+    # Test mixed variables (integers and floats)
+    mixed_values = [1, 2.5, 3, 4.5, 5]
+    result_mixed = calculate_variance(mixed_values)
+    assert np.isclose(result_mixed, 2.06)
+
+
+    # Test for empty input
+    empty_values = []
+    result_empty = calculate_variance(empty_values)
+    assert result_empty is None
+
+    # Test for non-numeric input
+    values = ["😁","😁","😁","😁"]
+    with pytest.raises(TypeError):
+        result = calculate_variance(values)
+
+    # Test for string input
+    values = "😁😁😁😁"
+    with pytest.raises(TypeError):
+        result = calculate_variance(values)
+
+    # Test for mixed type input
+    values = [1,2,3,4,5,"😁"]
+    with pytest.raises(TypeError):
+        result = calculate_variance(values)
