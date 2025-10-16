@@ -161,6 +161,7 @@ def calculate_average(filtered_values):
     average = total_sum / count
     return average
 
+
 def calculate_median(filtered_values):
     if len(filtered_values) == 0:
         return None  # Return None or handle empty data case as needed
@@ -204,6 +205,8 @@ def range(filtered_values):
     
     range = abs(max - min)
     return range
+ 
+
  
 def main():
     """
