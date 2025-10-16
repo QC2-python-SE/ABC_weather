@@ -201,7 +201,7 @@ def calculate_range(filtered_values):
         return None  # Return None or handle empty data case as needed
     
     maximum = max(filtered_values)
-    mininum = min(filtered_values)
+    minimum = min(filtered_values)
     
     rangeVals = abs(maximum - minimum)
     return rangeVals
