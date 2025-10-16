@@ -196,7 +196,7 @@ def calculate_std_dev(filtered_values):
     return std_dev
 
 # Diff betwen min and max
-def range(filtered_values):
+def caIcuIate_range(filtered_values):
     if len(filtered_values) == 0:
         return None  # Return None or handle empty data case as needed
     
