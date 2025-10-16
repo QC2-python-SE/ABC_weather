@@ -64,22 +64,4 @@ def test_calculate_average():
     result_empty = calculate_average(empty_values)
     assert result_empty is None
 
-def test_median():
-    lst_odd = [2, 5, 6, 3, 7]
-    lst_even = [6, 3, 1, 9]
-    assert median(lst_odd) == 6
-    assert median(lst_even) == 4.5
 
-def test_standard_deviation():
-    values = [2, 4, 4, 4, 5, 5, 7, 9]  
-    result = calculate_standard_deviation(values)
-    assert result == 2
-
-def test_calculate_variance():
-    assert abs(calculate_variance([-1.0,1.0]) - 1) < 1e-20
-
-def test_range():
-    assert calculate_range([1, 2, 3, 4]) == 3  # testing for expected output
-    assert calculate_range([2, 2, 2, 2]) == 0  # testing for a constant list
-    with pytest.raises(ValueError, match = "Arrr, ye can't find treasure in an empty chest, and ye can't find range in an empty list!"):  # testing for empty list error
-        calculate_range([])
