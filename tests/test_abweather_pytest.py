@@ -6,7 +6,7 @@ import pytest
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
-from abcweather import read_dataset, clean_data, train_model, calculate_average, calculate_variance, calculate_range
+from abcweather import read_dataset, clean_data, train_model, calculate_average, calculate_median, calculate_range, calculate_variance
 
 @pytest.fixture
 def mock_data():
@@ -100,6 +100,31 @@ def test_calculate_variance():
     values = [1,2,3,4,5,"😁"]
     with pytest.raises(TypeError):
         result = calculate_variance(values)
+def test_median():
+    # Test median calculation
+    values = [1, 3, 3, 6, 7, 8, 9]
+    result = calculate_median(values)
+    assert result == 6, "Median calculation is incorrect"
+
+    # Test for even number of elements
+    even_values = [1, 2, 3, 4]
+    result_even = calculate_median(even_values)
+    assert result_even == 2.5, "Median calculation for even number of elements is incorrect"
+
+    # test for empty list
+    empty_values = []
+    result_empty = calculate_median(empty_values) if empty_values else None
+    assert result_empty is None, "Median of empty list should be None"
+
+    # test for negative values
+    negative_values = [-5, -1, -3, -4, -2, 1, 21, 5]
+    result_negative = calculate_median(negative_values)
+    assert result_negative == -2, "Median calculation for negative values is incorrect"
+
+    # test functions with float values
+    float_values = [1.5e7, 2.5e-2, 3.5e4, 4.5e0, 5.5e-16]
+    result_float = calculate_median(float_values)
+    assert result_float == 4.5, "Median calculation for float values is incorrect"
 
 def test_range():
     assert calculate_range([2, 3]) == 1
