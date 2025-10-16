@@ -6,7 +6,7 @@ import pytest
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
-from abcweather import read_dataset, clean_data, train_model, calculate_average, median, calculate_standard_deviation, calculate_variance, calculate_range
+from abcweather import read_dataset, clean_data, train_model, calculate_average
 
 @pytest.fixture
 def mock_data():
