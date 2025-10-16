@@ -119,7 +119,7 @@ def test_median():
     # test for negative values
     negative_values = [-5, -1, -3, -4, -2, 1, 21, 5]
     result_negative = calculate_median(negative_values)
-    assert result_negative == -2, "Median calculation for negative values is incorrect"
+    assert result_negative == -1.5, "Median calculation for negative values is incorrect"
 
     # test functions with float values
     float_values = [1.5e7, 2.5e-2, 3.5e4, 4.5e0, 5.5e-16]
