@@ -65,3 +65,11 @@ def test_calculate_average():
     assert result_empty is None
 
 
+def test_range():
+    assert calculate_range(2, 3) == 1
+    assert calculate_range(3, 2) == 1
+    with pytest.raises(Exception) as e_info:
+        result = calculate_range()
+    with pytest.raises(Exception) as e_info:
+        result = calculate_range("x","y")
+    
