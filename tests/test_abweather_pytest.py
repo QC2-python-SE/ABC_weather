@@ -70,8 +70,7 @@ def test_range():
     assert calculate_range([3, 2]) == 1
     with pytest.raises(Exception) as e_info:
         result = calculate_range()
-    with pytest.raises(Exception) as e_info:
-        result = calculate_range([])
+    assert calculate_range([]) == None
     with pytest.raises(Exception) as e_info:
         result = calculate_range(["x","y"])
     
