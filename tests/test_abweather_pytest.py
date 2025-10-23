@@ -6,7 +6,7 @@ import pytest
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
-from abcweather import read_dataset, clean_data, train_model, calculate_average, calculate_variance
+from abcweather import read_dataset, clean_data, train_model, calculate_average, calculate_variance, calculate_range
 
 @pytest.fixture
 def mock_data():
@@ -95,8 +95,17 @@ def test_calculate_variance():
     values = "😁😁😁😁"
     with pytest.raises(TypeError):
         result = calculate_variance(values)
-
+    
     # Test for mixed type input
     values = [1,2,3,4,5,"😁"]
     with pytest.raises(TypeError):
         result = calculate_variance(values)
+
+def test_range():
+    assert calculate_range([2, 3]) == 1
+    assert calculate_range([3, 2]) == 1
+    with pytest.raises(Exception) as e_info:
+        result = calculate_range()
+    assert calculate_range([]) == None
+    with pytest.raises(Exception) as e_info:
+        result = calculate_range(["x","y"])
