@@ -197,6 +197,16 @@ def calculate_std_dev(filtered_values):
 
 # Diff betwen min and max
 def calculate_range(filtered_values):
+    """
+    Find the difference between the max and min of the list
+
+    Args:
+        filtered_values (list): a list of numbers 
+
+    Returns:
+        float or int: the difference between the max and min of the list
+    """
+
     if len(filtered_values) == 0:
         return None  # Return None or handle empty data case as needed
     
