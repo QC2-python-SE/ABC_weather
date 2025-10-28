@@ -1,0 +1,11 @@
+# --- Runtime dependencies ---
+numpy>=1.24
+pandas>=2.0
+matplotlib>=3.8
+scikit-learn>=1.5
+
+# --- Developer & testing tools ---
+pytest>=7.0
+ruff>=0.4
+build>=1.2
+twine>=5.0
